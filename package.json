@@ -1,10 +1,10 @@
 {
-  "name": "tdlib-template",
+  "name": "typescript-starter-kit",
   "version": "0.0.0",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com>",
-  "description": "TDLib template",
+  "description": "Typescript starter kit",
   "main": "index.js",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "l": "yarn lint",
     "b": "yarn build",
