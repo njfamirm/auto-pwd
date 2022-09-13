@@ -1,0 +1,42 @@
+name: Bug Report
+description: Report a bug to help us improve
+labels:
+  - bug
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: reproduction link
+      description: Please provide a link to a minimal reproduction of the bug, for example use [JSBin](https://jsbin.com/) to make a demo.
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Please provide the exception or error you saw (Preferably with a screenshot)
+
+  - type: textarea
+    id: device
+    attributes:
+      label: Device or platform
+      description: What is your device and platform?
+      placeholder: |
+        Device: Desktop or Phone
+        OS: iOS 14.1
+        Browser: Chrome
+        Version: 100
+    validations:
+      required: true
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
