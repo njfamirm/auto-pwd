@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "christian-kohler.path-intellisense",
+    "jgclark.vscode-todo-highlight",
+    "DavidAnson.vscode-markdownlint",
+  ]
+}
