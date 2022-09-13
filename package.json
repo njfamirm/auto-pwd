@@ -1,8 +1,8 @@
 {
-  "name": "typescript-starter-kit",
+  "name": "minimal-typescript-starter-kit",
   "version": "0.0.0",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com>",
-  "description": "Typescript starter kit",
+  "description": "Minimal typescript starter kit",
   "main": "index.js",
   "license": "GPL-3.0-or-later",
   "scripts": {

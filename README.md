@@ -1,1 +1,1 @@
-# Typescript starter kit
+# Minimal typescript starter kit
