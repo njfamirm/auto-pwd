@@ -1,15 +1,16 @@
 {
-  "name": "minimal-typescript-starter-kit",
+  "name": "web-crawler",
   "version": "0.0.0",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com>",
-  "description": "Minimal typescript starter kit",
+  "description": "Web crawler bot",
   "main": "index.js",
+  "type": "module",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "l": "yarn lint",
     "b": "yarn build",
+    "s": "yarn start",
     "cb": "npm-run-all --sequential clean build",
-    "s": "yarn serve:dev",
     "w": "yarn watch",
     "f": "yarn format",
     "fl": "yarn format:eslint",
@@ -21,6 +22,7 @@
     "format": "npm-run-all --sequential format:prettier format:eslint",
     "format:eslint": "yarn lint:ts --fix",
     "format:prettier": "prettier \"**/*.{html,json,md,ts}\" --ignore-path ./.eslintignore --write",
+    "start": "node dist/index.js",
     "clean": "yarn build:ts --clean && rimraf \"**/*.{js,d.ts,map}\" \"**/.tsbuildinfo\" \"**/node_modules/\"",
     "watch": "npm-run-all --parallel watch:* serve:dev",
     "watch:ts": "yarn build:ts --watch --preserveWatchOutput"
@@ -39,5 +41,9 @@
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@alwatr/logger": "^0.16.0",
+    "puppeteer": "^17.1.3"
   }
 }
