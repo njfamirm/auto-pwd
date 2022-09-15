@@ -34,7 +34,9 @@
     "max-len": [
       "error",
       {
-        "code": 120
+        "code": 120,
+      }, {
+        "ignoreStrings": true
       }
     ],
     "no-eval": [
