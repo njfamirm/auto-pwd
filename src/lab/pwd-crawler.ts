@@ -27,12 +27,20 @@ export class PWDCrawler extends Browser {
   }
 
   async loginWithCookie(id: string): Promise<void> {
+    if (this.isLogined) {
+      this._logger.incident('loginWithCookie', 'USER_LOGINED', 'User login before.');
+      return;
+    }
     this._logger.logMethod('loginWithCookie');
     await this.__setLoginCookie(id);
     await this.pages.pwd.reload();
   }
 
   async loginWithPassword(userinfo: UserInfo): Promise<void> {
+    if (this.isLogined) {
+      this._logger.incident('loginWithPassword', 'USER_LOGINED', 'User login before.');
+      return;
+    }
     this._logger.logMethod('loginWithPassword');
     this.__userInfo = userinfo;
     await this.__openLoginPage();
