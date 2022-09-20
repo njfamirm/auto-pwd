@@ -5,7 +5,7 @@ trap "echo '❌ Error'" ERR
 
 thisPath="$(pwd)"
 cd $thisPath
-rsync="rsync -PrLptzhv --delete --exclude-from=.gitignore"
+rsync="rsync -PrLptzhv --delete --exclude=.git --exclude=node_modules --exclude=env/ --exclude=deploy* --exclude=*.md --exclude=.DS*"
 
 # params
 envPath="${1:-}"
@@ -80,15 +80,21 @@ function loadEnv() {
       error "Environment file \"$envPath\" exist! use another file for make new deployment."
     fi
 
-    cp -v ./env/example.env $envPath
+    if [ ! -d env ]; then
+      mkdir env
+    fi
+
+    cp -v ./example.env $envPath
     $editor $envPath
 
+    exit 0;
   elif [ ! -f $envPath ]; then
     error "Environment file \"$envPath\" not found."
   fi
 
-  cat $envPath
-  source $envPath
+  cp $envPath .env
+  cat .env
+  source .env
 
   if [ -z ${DEPLOY_HOST:-} ]; then
     echo "❌ Please set \"DEPLOY_HOST=your_host\" in $envPath file."
@@ -197,6 +203,7 @@ function command_help() {
   Alwatr classic cloud deploy containers script.
 
   Command:
+    new      Create new env file from example.env.
     up      Sync, Build, Create/Recreate containers.
     down    Down and remove containers (no file deleted).
     restart Restart service containers.
