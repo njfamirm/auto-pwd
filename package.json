@@ -1,8 +1,8 @@
 {
-  "name": "web-crawler",
+  "name": "pwd-crawler",
   "version": "0.0.0",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com>",
-  "description": "Web crawler bot",
+  "description": "Auto run script on play-with-docker with crawling.",
   "main": "index.js",
   "type": "module",
   "license": "GPL-3.0-or-later",

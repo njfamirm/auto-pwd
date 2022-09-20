@@ -35,8 +35,6 @@
       "error",
       {
         "code": 120
-      }, {
-        "ignoreStrings": true
       }
     ],
     "no-eval": [
