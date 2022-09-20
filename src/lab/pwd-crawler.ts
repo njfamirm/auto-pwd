@@ -16,7 +16,7 @@ export class PWDCrawler extends Browser {
     this.readyStatePromise.then(() => {
       this.__targetCreatedHandler = this.__targetCreatedHandler.bind(this);
       this.__enterSingleLineCommand = this.__enterSingleLineCommand.bind(this);
-      this._browser?.on('targetcreated', this.__targetCreatedHandler);
+      this.browser?.on('targetcreated', this.__targetCreatedHandler);
     });
   }
 
@@ -28,7 +28,7 @@ export class PWDCrawler extends Browser {
 
   async loginWithCookie(id: string): Promise<void> {
     if (this.isLogined) {
-      this._logger.incident('loginWithCookie', 'USER_LOGINED', 'User login before.');
+      this._logger.incident('loginWithCookie', 'USER_LOGINED_BEFORE', 'User login before.');
       return;
     }
     this._logger.logMethod('loginWithCookie');
@@ -38,7 +38,7 @@ export class PWDCrawler extends Browser {
 
   async loginWithPassword(userinfo: UserInfo): Promise<void> {
     if (this.isLogined) {
-      this._logger.incident('loginWithPassword', 'USER_LOGINED', 'User login before.');
+      this._logger.incident('loginWithPassword', 'USER_LOGINED_BEFORE', 'User login before.');
       return;
     }
     this._logger.logMethod('loginWithPassword');
@@ -67,7 +67,12 @@ export class PWDCrawler extends Browser {
     });
 
     for (;;) {
-      if (this.pages.pwd.url().startsWith('https://labs.play-with-docker.com/p/')) break;
+      if (this.pages.pwd.url().startsWith('https://labs.play-with-docker.com/p/')) {
+        break;
+      } else if (this.pages.pwd.url().startsWith('https://labs.play-with-docker.com/ooc')) {
+        this._logger.error('sta rtSession', 'OCC', 'OCC page returned.');
+        this.browser?.close();
+      }
       await sleep(1000);
     }
 
@@ -129,7 +134,9 @@ export class PWDCrawler extends Browser {
     this._logger.logMethod('__openLoginPage');
     if (this._readyState === false) return;
 
+    await this.pages.pwd.waitForSelector('#btnGroupDrop1', {visible: true});
     await this.pages.pwd.click('#btnGroupDrop1');
+    await this.pages.pwd.waitForSelector('a.dropdown-item.ng-binding.ng-scope', {visible: true});
     await this.pages.pwd.click('a.dropdown-item.ng-binding.ng-scope');
   }
 

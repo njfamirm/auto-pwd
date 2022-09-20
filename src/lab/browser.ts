@@ -49,21 +49,21 @@ export class Browser {
   async activePages(): Promise<Array<PptrPage>> {
     if (!this._readyState) throw new Error('not_ready');
     this._logger.logMethod('activePages');
-    this._activePages = (await this._browser?.pages()) ?? [];
+    this._activePages = (await this.browser?.pages()) ?? [];
     return this._activePages;
   }
 
   async close(): Promise<void> {
     if (!this._readyState) throw new Error('not_ready');
     this._logger.logMethod('close');
-    this._browser?.close();
+    this.browser?.close();
   }
 
   async openPage(name: string, url: string, w4option?: WaitForOptions): Promise<void> {
     if (!this._readyState) throw new Error('not_ready');
 
     this._logger.logMethodArgs('openPage', {name: name, url: url});
-    const page = this.__freePage ?? (await this._browser?.newPage());
+    const page = this.__freePage ?? (await this.browser?.newPage());
     await page?.goto(url, w4option);
     if (page === undefined) {
       this._logger.error('openPage', 'page_undefined', 'Page undefined');

@@ -12,9 +12,7 @@ const pwdBrowser = new PWDCrawler({
 
 await pwdBrowser.readyStatePromise;
 
-await pwdBrowser.loginWithCookie(
-    (config.account.cookie as string),
-);
+await pwdBrowser.loginWithCookie(config.account.cookie as string);
 
 // await pwdBrowser.loginWithPassword({
 //   id: (config.account.id as string),

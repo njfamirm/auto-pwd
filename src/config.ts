@@ -1,11 +1,11 @@
-
 import {createLogger} from '@alwatr/logger';
 
-if (!(
-  process.env.ACCOUNT_ID !== undefined &&
-  process.env.ACCOUNT_PASSWORD !== undefined ||
-  process.env.ACCOUNT_COOKIE !== undefined
-)) {
+if (
+  !(
+    (process.env.ACCOUNT_ID !== undefined && process.env.ACCOUNT_PASSWORD !== undefined) ||
+    process.env.ACCOUNT_COOKIE !== undefined
+  )
+) {
   throw new Error('Please set ACCOUNT_ID and ACCOUNT_PASSWORD or ACCOUNT_COOKIE');
 }
 
