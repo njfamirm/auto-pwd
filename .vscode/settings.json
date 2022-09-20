@@ -16,4 +16,5 @@
     "**/*.d.ts": true,
     "**/*.tsbuildinfo": true
   },
+  "docwriter.style": "JSDoc"
 }
