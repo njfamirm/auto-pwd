@@ -10,7 +10,7 @@ COPY package.json yarn.lock tsconfig.json ./
 
 RUN yarn install --frozen-lockfile --non-interactive
 
-COPY src ./
+ADD src ./src
 
 RUN ls
 
