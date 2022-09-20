@@ -1,8 +1,8 @@
 {
-  "name": "pwd-crawler",
+  "name": "auto-pwd",
   "version": "0.0.0",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com>",
-  "description": "Auto run script on play-with-docker with crawling.",
+  "description": "Auto run script on https://labs.play-with-docker.com/ with crawling.",
   "main": "index.js",
   "type": "module",
   "license": "GPL-3.0-or-later",
