@@ -6,18 +6,24 @@ logger.logOther('!: Auto-PWD :!');
 
 const pwdBrowser = new PWDCrawler({
   name: config.name,
-  headless: config.headless,
-  devtools: config.devtool,
+  headless: config.puppeteer.headless,
+  devtools: config.puppeteer.devtool,
 });
 
 await pwdBrowser.readyStatePromise;
 
-await pwdBrowser.loginWithCookie(config.account.cookie as string);
+if (config.account.cookie === undefined) {
+  throw new Error('ّUser id cookie must be set');
+}
+await pwdBrowser.loginWithCookie(config.account.cookie);
 
-// await pwdBrowser.loginWithPassword({
-//   id: (config.account.id as string),
-//   password: (config.account.password as string),
-// });
+if (config.account.id === undefined || config.account.password === undefined) {
+  throw new Error('User id & password must be set');
+}
+await pwdBrowser.loginWithPassword({
+  id: config.account.id,
+  password: config.account.password,
+});
 
 while (!(await pwdBrowser.checkLoginStatus())) {
   await sleep(3000);

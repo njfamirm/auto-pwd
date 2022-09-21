@@ -37,6 +37,9 @@ export class PWDCrawler extends Browser {
   }
 
   async loginWithPassword(userinfo: UserInfo): Promise<void> {
+    if (userinfo.id === undefined || userinfo.password === undefined) {
+      throw new Error('user id & password is nessessary');
+    }
     if (this.isLogined) {
       this._logger.incident('loginWithPassword', 'USER_LOGINED_BEFORE', 'User login before.');
       return;
@@ -132,12 +135,16 @@ export class PWDCrawler extends Browser {
 
   private async __openLoginPage(): Promise<void> {
     this._logger.logMethod('__openLoginPage');
-    if (this._readyState === false) return;
+    if (this._readyState === false) throw new Error('not_ready');
 
-    await this.pages.pwd.waitForSelector('#btnGroupDrop1', {visible: true});
-    await this.pages.pwd.click('#btnGroupDrop1');
+    await this.pages.pwd.waitForSelector('#btnGroupDrop1');
+    await this.pages.pwd.$eval('#btnGroupDrop1', async (button) => {
+      (button as HTMLButtonElement)?.click();
+    });
     await this.pages.pwd.waitForSelector('a.dropdown-item.ng-binding.ng-scope', {visible: true});
-    await this.pages.pwd.click('a.dropdown-item.ng-binding.ng-scope');
+    await this.pages.pwd.$eval('a.dropdown-item.ng-binding.ng-scope', async (button) => {
+      (button as HTMLButtonElement)?.click();
+    });
   }
 
   private async __setLoginCookie(id: string): Promise<void> {
