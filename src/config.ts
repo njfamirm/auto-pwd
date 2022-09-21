@@ -11,8 +11,10 @@ if (
 
 export const config = {
   name: process.env.NAME ?? 'PWDCrawler',
-  headless: Boolean(process.env.HEADLESS) ?? true,
-  devtool: Boolean(process.env.DEV_TOOL) ?? false,
+  puppeteer: {
+    headless: Boolean(process.env.HEADLESS) ?? true,
+    devtool: Boolean(process.env.DEV_TOOL) ?? false,
+  },
   account: {
     id: process.env.ACCOUNT_ID,
     password: process.env.ACCOUNT_PASSWORD,
@@ -22,4 +24,5 @@ export const config = {
 
 export const logger = createLogger(config.name);
 
-logger.logProperty('config', config);
+logger.logProperty('config', config.puppeteer);
+logger.logProperty('config', config.account);
