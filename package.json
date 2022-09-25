@@ -46,6 +46,6 @@
   },
   "dependencies": {
     "@alwatr/logger": "^0.16.0",
-    "puppeteer": "^18.0.2"
+    "puppeteer": "^18.0.4"
   }
 }
