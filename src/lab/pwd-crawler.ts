@@ -109,16 +109,12 @@ export class PWDCrawler extends Browser {
     await this.pages.session.keyboard.press('Enter');
   }
 
-  async enterCommand(multiLineCommand: string): Promise<void> {
-    this._logger.logMethod('enterCommand');
-
-    // Click to terminal
-    await this.pages.session.waitForSelector('div.xterm-accessibility');
-    await this.pages.session.click('div.xterm-accessibility');
+  async enterCommand(command: string): Promise<void> {
+    this._logger.logMethodArgs('enterCommand', {command: command});
 
     // Split command on each line
-    for (const command of multiLineCommand.split('\n')) {
-      await this.__enterSingleLineCommand(command);
+    for (const singleLineCommand of command.split('\n')) {
+      await this.__enterSingleLineCommand(singleLineCommand);
     }
   }
 

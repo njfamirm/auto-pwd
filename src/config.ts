@@ -25,4 +25,4 @@ export const config = {
 export const logger = createLogger(config.name);
 
 logger.logProperty('config', config.puppeteer);
-logger.logProperty('config', config.account);
+

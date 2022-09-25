@@ -8,14 +8,15 @@ const pwdBrowser = new PWDCrawler({
   name: config.name,
   headless: config.puppeteer.headless,
   devtools: config.puppeteer.devtool,
+  // args: ['--no-sandbox', '--disable-setuid-sandbox'],
 });
 
 await pwdBrowser.readyStatePromise;
 
-if (config.account.cookie === undefined) {
-  throw new Error('ّUser id cookie must be set');
-}
-await pwdBrowser.loginWithCookie(config.account.cookie);
+// if (config.account.cookie === undefined) {
+//   throw new Error('ّUser id cookie must be set');
+// }
+// await pwdBrowser.loginWithCookie(config.account.cookie);
 
 if (config.account.id === undefined || config.account.password === undefined) {
   throw new Error('User id & password must be set');
@@ -36,10 +37,8 @@ if (err !== null) {
 
 await pwdBrowser.addNewInstance();
 
-await pwdBrowser.enterCommand(`
-echo $HOST
-curl -fsSL https://raw.githubusercontent.com/njfamirm/dotfiles/main/install.sh | bash
-`);
+logger.logOther('Run Dotfile installer script');
+await pwdBrowser.enterCommand(`curl -fsSL https://raw.githubusercontent.com/njfamirm/dotfiles/main/install.sh | bash`);
 
 // await pwdBrowser.close();
 
