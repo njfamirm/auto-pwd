@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alwatr/logger@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@alwatr/logger/-/logger-0.16.0.tgz#d8cc9ff36d6727219bea04296ee96b28fd8e9e50"
-  integrity sha512-yCY/oBmQraH1IJHHvXmX6JpiDmzSbaYCb3giwHbRovb4Zyhqi+h29s30gDuZAjsJ6G1gYY35Yz8xwfL7NXonrA==
+"@alwatr/logger@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@alwatr/logger/-/logger-0.18.0.tgz#b007836cc8163a1d1cb196fbc615b3b5381a1b61"
+  integrity sha512-5AlGmYPsXRzCoumwAQBv+Z+IJwRbrEovhEfS73J0+Nh23cg2GUUHOqi8uhyIaI0+E+AeyzvWOu7fRcLX0LmAXQ==
   dependencies:
     tslib "^2.3.1"
 
