@@ -2,12 +2,18 @@
 # yarn lockfile v1
 
 
-"@alwatr/logger@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@alwatr/logger/-/logger-0.16.0.tgz#d8cc9ff36d6727219bea04296ee96b28fd8e9e50"
-  integrity sha512-yCY/oBmQraH1IJHHvXmX6JpiDmzSbaYCb3giwHbRovb4Zyhqi+h29s30gDuZAjsJ6G1gYY35Yz8xwfL7NXonrA==
+"@alwatr/logger@^0.28.0":
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/@alwatr/logger/-/logger-0.28.0.tgz#e444dc5165ed4ef73453edc8c272ce947ed2c975"
+  integrity sha512-euWX3Z7mYSz2KVgvz28t9iiEcukAW+wpfIiTgjBYTIpX6tn9UJA0Dc0WESwPltgryg1EPGgkrDbHEGE2z/wr3Q==
   dependencies:
-    tslib "^2.3.1"
+    "@alwatr/type" "^0.28.0"
+    tslib "^2.4.1"
+
+"@alwatr/type@^0.28.0":
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/@alwatr/type/-/type-0.28.0.tgz#c22fc894f097f1179a2cd4d7eb474d32207a1dcd"
+  integrity sha512-Ty/iAd58PE9uVrxjfCJMATwAHidnOV3obJPcHNjUO9UITryCsSFcP9RPMUtF5WC/P4hOiBV4YfN6DjL+lJuWLw==
 
 "@babel/code-frame@^7.12.11":
   version "7.18.6"
@@ -2694,10 +2700,10 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.3.1, tslib@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
+tslib@^2.4.0, tslib@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
+  integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
 
 tsscmp@1.0.6:
   version "1.0.6"
